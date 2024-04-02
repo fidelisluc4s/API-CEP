@@ -41,3 +41,19 @@ const pesquisarCep = async() => {
 
 document.getElementById('cep')
         .addEventListener('focusout',pesquisarCep);
+
+
+//para page pre.html
+
+document.addEventListener("DOMContentLoaded", function() {
+    let infoDiv = document.getElementById("info");
+    
+    let urlParams = new URLSearchParams(window.location.search);
+    let params = Object.fromEntries(urlParams.entries());
+    
+    for (let key in params) {
+        let p = document.createElement("p");
+        p.innerHTML = `<strong>${key}:</strong> ${params[key]}`;
+        infoDiv.appendChild(p);
+    }
+});
